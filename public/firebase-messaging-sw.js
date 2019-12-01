@@ -13,5 +13,5 @@ var config = {
 };
 
 firebase.initializeApp(config);
-
+console.log("worker start")
 var messaging = firebase.messaging();
