@@ -29,6 +29,7 @@ function subscribe() {
             messaging.getToken()
                 .then(function (currentToken) {
                     console.log(currentToken);
+                    $('#tokken').text(currentToken);
 
                     if (currentToken) {
                         sendTokenToServer(currentToken);
