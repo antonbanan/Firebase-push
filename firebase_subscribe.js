@@ -1,25 +1,45 @@
 // firebase_subscribe.js
-firebase.initializeApp({
-	messagingSenderId: '213429851920'
-});
+// firebase.initializeApp({
+// 	messagingSenderId: '213429851920'
+// });
 
 // браузер поддерживает уведомления
 // вообще, эту проверку должна делать библиотека Firebase, но она этого не делает
-if ('Notification' in window) {
-	var messaging = firebase.messaging();
+// if ('Notification' in window) {
+// 	var messaging = firebase.messaging();
 
-	// пользователь уже разрешил получение уведомлений
-	// подписываем на уведомления если ещё не подписали
-	if (Notification.permission === 'granted') {
-		subscribe();
-	}
+// 	// пользователь уже разрешил получение уведомлений
+// 	// подписываем на уведомления если ещё не подписали
+// 	if (Notification.permission === 'granted') {
+// 		subscribe();
+// 	}
 
 	// по клику, запрашиваем у пользователя разрешение на уведомления
 	// и подписываем его
-	$('#subscribe').on('click', function () {
-		subscribe();
-	});
-}
+// 	$('#subscribe').on('click', function () {
+// 		subscribe();
+// 	});
+// }
+
+var firebaseConfig = {
+	apiKey: "AIzaSyBjzSpn8TJOlLm5kspJ1KDgFYslUS-ikXQ",
+	authDomain: "shelf-6eaeb.firebaseapp.com",
+	projectId: "shelf-6eaeb",
+	storageBucket: "shelf-6eaeb.appspot.com",
+	messagingSenderId: "728443310744",
+	appId: "1:728443310744:web:79726a26292c5aa178b6ed",
+	measurementId: "G-2YVW7854YF"
+};
+
+
+firebase.initializeApp(firebaseConfig);
+
+console.log('sho')
+const messaging = firebase.messaging();
+
+$('#subscribe').on('click', function () {
+	subscribe();
+});
 
 function subscribe() {
 	// запрашиваем разрешение на получение уведомлений
